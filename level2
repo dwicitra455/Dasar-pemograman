@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+// Fungsi untuk mengonversi total detik ke hari, jam, menit, dan detik
+void konversiDetik(int totalDetik) {
+    const int detikPerHari = 86400;
+    const int detikPerJam = 3600;
+    const int detikPerMenit = 60;
+
+    int hari = totalDetik / detikPerHari;
+    int sisa = totalDetik % detikPerHari;
+
+    int jam = sisa / detikPerJam;
+    sisa %= detikPerJam;
+
+    int menit = sisa / detikPerMenit;
+    int detik = sisa % detikPerMenit;
+
+    cout << "\nHasil Konversi:\n";
+    cout << totalDetik << " detik = "
+         << hari << " Hari, "
+         << jam << " Jam, "
+         << menit << " Menit, "
+         << detik << " Detik.\n";
+}
+
+int main() {
+    int totalDetik;
+    cout << "Masukkan bilangan >1 (satuan detik): ";
+    cin >> totalDetik;
+
+    if (totalDetik <= 1) {
+        cout << "Input tidak valid. Harus lebih dari 1 detik.\n";
+    } else {
+        konversiDetik(totalDetik);
+    }
+
+    return 0;
+}
